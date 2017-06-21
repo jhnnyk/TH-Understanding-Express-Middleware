@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const multipler = require('./multipler');
+const multiply = require('./multiply');
 
 const routes = require('./routes/index');
 
@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(multipler(2));
+app.use(multiply({by: 10}));
 
 app.use('/', routes);
 
